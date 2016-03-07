@@ -11,7 +11,7 @@ fi
 set -e
 
 source "$OPENVPN/ovpn_env.sh"
-GEN_DH=${GEN_DH:-""}
+SKIP_DH=${SKIP_DH:-""}
 
 # Specify "nopass" as arg[2] to make the CA insecure (not recommended!)
 nopass=$1
@@ -24,7 +24,7 @@ easyrsa init-pki
 # needed for normal OpenVPN operation.
 easyrsa build-ca $nopass
 
-if [ -n "${GEN_DH}" ]
+if [ -n "${SKIP_DH}" ]
 then
 	easyrsa gen-dh
 	openvpn --genkey --secret $OPENVPN/pki/ta.key
