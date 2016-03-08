@@ -7,3 +7,6 @@ The only differences are some changed scripts to enable fully automated containe
 
 #### ovpn_getclient
 * Now checks for environment variable `SKIP_TA`. If set, all sections referring to the ta.key are skipped.
+
+#### ovpn_genconfig
+* Now checks for environment variable `SKIP_DH`. If set, no DH-param options are included.
